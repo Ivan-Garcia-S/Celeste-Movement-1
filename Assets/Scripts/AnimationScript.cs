@@ -15,7 +15,7 @@ public class AnimationScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         coll = GetComponentInParent<Collision>();
-        move = GetComponentInParent<Movement>();
+        move = GetComponentInParent<BaseMovement>();
         sr = GetComponent<SpriteRenderer>();
     }
 
@@ -60,4 +60,14 @@ public class AnimationScript : MonoBehaviour
         bool state = (side == 1) ? false : true;
         sr.flipX = state;
     }
+
+
+    public void UseBase(){
+        move = GetComponentInParent<BaseMovement>();
+    }
+
+    public void UseImproved(){
+        move = GetComponentInParent<ImprovedMovement>();
+    }
+
 }
